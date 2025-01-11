@@ -299,7 +299,7 @@ const Codec = () => {
                 0
               </div>
               <p className="section-info open-sans">
-                De-Jitter buffer to compensate
+              Predicted Jitter buffer
               </p>
             </div>
           </div>
