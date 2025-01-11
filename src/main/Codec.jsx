@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import MosChart from "../components/MosChart";
+import MosGauge from "../components/MosGauge";
 
 const Codec = () => {
   return (
@@ -268,12 +269,7 @@ const Codec = () => {
 
           <div className="mos-wrapper">
             <div className="mos-gauge">
-              <div id="k-content">
-                <div id="gauge-container">
-                  <div id="gauge"></div>
-                  <h1 id="gauge-text"></h1>
-                </div>
-              </div>
+              <MosGauge/>
             </div>
 
             <div className="mos-compare">
