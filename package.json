@@ -17,6 +17,7 @@
     "react-gauge-component": "^1.2.62",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.5",
+    "react-password-checklist": "^1.8.1",
     "react-router-dom": "^7.1.1",
     "react-scroll": "^1.9.0"
   },

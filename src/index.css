@@ -703,6 +703,14 @@ iframe{
   transform: scale(0);
   transition: all 400ms ease;
 }
+.modal-booking-form{
+  overflow-y: scroll;
+  height: 500px;
+  scrollbar-width: none; /* For Firefox, hides the scrollbar */
+}
+.modal-booking-form::-webkit-scrollbar {
+  display: none; /* For Chrome, Edge, and Safari, hides the scrollbar */
+}
 .modal-form{
   margin-bottom: 20px;
 }
@@ -714,7 +722,7 @@ iframe{
 }
 .booking-name-email{
   width: 100%;
-  height: 60px;
+  height: 50px;
   padding-inline: 20px;
   font-family: "Open Sans", 'FontAwesome';
   flex: 50%;
@@ -727,6 +735,9 @@ iframe{
 }
 .booking-name-email:focus{
   border: 1px solid rgb(255, 107, 0);
+}
+.password-check{
+  margin-block: 15px;
 }
 .close-btn{
   color: #C66912;
