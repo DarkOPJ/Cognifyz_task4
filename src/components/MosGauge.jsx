@@ -7,7 +7,7 @@ const MosGauge = () => {
 
         <GaugeComponent
         className="gauge-style"
-          value={2.4}
+          value={3.7709}
           minValue= {0}
           maxValue= {5}
           type="radial"
@@ -22,8 +22,11 @@ const MosGauge = () => {
                 { value: 4 },
                 { value: 5 },
               ],
+              defaultTickValueConfig: {
+                style: {fontSize: "20px"}
             },
-          }}
+          }
+        }}
           arc={{
             colorArray: ["#EA4228", "#F5D800", "#5BE12C"],
             subArcs: [
