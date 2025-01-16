@@ -49,7 +49,7 @@ const RegisterModal = ({ isActive = false, close }) => {
     validatePassword(password, newConfirmPassword);
   };
 
-  const createNewUser = () => {
+  const createNewUser = (e) => {
     e.preventDefault();
     const newUser = {
       name,
@@ -65,6 +65,7 @@ const RegisterModal = ({ isActive = false, close }) => {
         onSubmit={createNewUser}
         action=""
         className="booking-form modal-booking-form"
+        
       >
         <button type="button" onClick={close} className="close-btn">
           <i className="fa-regular fa-circle-xmark"></i>
@@ -83,7 +84,7 @@ const RegisterModal = ({ isActive = false, close }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               autoComplete="name"
-              required 
+              required
             />
             <input
               className="open-sans booking-name-email"
@@ -94,7 +95,7 @@ const RegisterModal = ({ isActive = false, close }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="email"
-              required 
+              required
             />
             <input
               className="open-sans booking-name-email"
@@ -106,7 +107,7 @@ const RegisterModal = ({ isActive = false, close }) => {
               // onChange={(e) => setPassword(e.target.value)}
               onChange={handlePasswordChange}
               autoComplete="new-password"
-              required 
+              required
             />
             <input
               className="open-sans booking-name-email"
@@ -118,7 +119,7 @@ const RegisterModal = ({ isActive = false, close }) => {
               onChange={handleConfirmPasswordChange}
               // onChange={(e) => setConfirmPassword(e.target.value)}
               autoComplete="new-password"
-              required 
+              required
             />
 
             {/* <div className="">
@@ -136,22 +137,59 @@ const RegisterModal = ({ isActive = false, close }) => {
               />
             </div> */}
 
-<div className="password-checklist">
+            <div className="password-checklist">
               <ul>
                 <li className={passwordChecker.minLength ? "valid" : "invalid"}>
-                <i className={passwordChecker.minLength ? "fa-solid fa-check" : "fa-solid fa-sharp fa-xmark"}></i> At least 8 characters
+                  <i
+                    className={
+                      passwordChecker.minLength
+                        ? "fa-solid fa-check"
+                        : "fa-solid fa-sharp fa-xmark"
+                    }
+                  ></i>{" "}
+                  At least 8 characters
                 </li>
-                <li className={passwordChecker.specialChar ? "valid" : "invalid"}>
-                <i className={passwordChecker.specialChar ? "fa-solid fa-check" : "fa-solid fa-sharp fa-xmark"}></i> Contains a special character
+                <li
+                  className={passwordChecker.specialChar ? "valid" : "invalid"}
+                >
+                  <i
+                    className={
+                      passwordChecker.specialChar
+                        ? "fa-solid fa-check"
+                        : "fa-solid fa-sharp fa-xmark"
+                    }
+                  ></i>{" "}
+                  Contains a special character
                 </li>
                 <li className={passwordChecker.number ? "valid" : "invalid"}>
-                <i className={passwordChecker.number ? "fa-solid fa-check" : "fa-solid fa-sharp fa-xmark"}></i> Contains a number
+                  <i
+                    className={
+                      passwordChecker.number
+                        ? "fa-solid fa-check"
+                        : "fa-solid fa-sharp fa-xmark"
+                    }
+                  ></i>{" "}
+                  Contains a number
                 </li>
                 <li className={passwordChecker.capital ? "valid" : "invalid"}>
-                <i className={passwordChecker.capital ? "fa-solid fa-check" : "fa-solid fa-sharp fa-xmark"}></i> Contains a capital letter
+                  <i
+                    className={
+                      passwordChecker.capital
+                        ? "fa-solid fa-check"
+                        : "fa-solid fa-sharp fa-xmark"
+                    }
+                  ></i>{" "}
+                  Contains a capital letter
                 </li>
                 <li className={passwordChecker.match ? "valid" : "invalid"}>
-                <i className={passwordChecker.match ? "fa-solid fa-check" : "fa-solid fa-sharp fa-xmark"}></i> Passwords match
+                  <i
+                    className={
+                      passwordChecker.match
+                        ? "fa-solid fa-check"
+                        : "fa-solid fa-sharp fa-xmark"
+                    }
+                  ></i>{" "}
+                  Passwords match
                 </li>
               </ul>
             </div>
@@ -160,7 +198,6 @@ const RegisterModal = ({ isActive = false, close }) => {
               className="signup-form-btn open-sans booking-name-email"
               type="submit"
               value="Register"
-              disabled={!Object.values(passwordChecker).every((val) => val)}
             />
           </div>
 
