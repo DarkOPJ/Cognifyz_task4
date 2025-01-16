@@ -716,9 +716,26 @@ iframe{
 }
 .booking-form1{
   width: 100%;
-  display: flex;
-  gap: 10px;
   margin-bottom: 10px;
+}
+.booking-form1 :not(:last-child){
+  margin-bottom: 6px;
+}
+.password-checklist ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.password-checklist li {
+  margin: 5px 0;
+}
+
+.password-checklist .valid {
+  color: green;
+}
+
+.password-checklist .invalid {
+  color: red;
 }
 .booking-name-email{
   width: 100%;
