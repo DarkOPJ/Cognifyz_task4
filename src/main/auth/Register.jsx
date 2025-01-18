@@ -106,6 +106,7 @@ const Register = () => {
             autoComplete="name"
             required
           />
+
           <input
             className="open-sans booking-name-email" //email
             placeholder="&#xf003; Email Address"
@@ -117,6 +118,7 @@ const Register = () => {
             autoComplete="email"
             required
           />
+
           <div className="password-div">
             <input
               className="open-sans booking-name-email password-no-margin" //password
@@ -130,7 +132,6 @@ const Register = () => {
               onChange={handlePasswordChange}
               required
             />
-            
               <i
                 className={`fa-solid ${
                   isPasswordVisible ? "fa-eye-slash" : "fa-eye"
@@ -139,6 +140,7 @@ const Register = () => {
                 style={{ cursor: "pointer" }}
               ></i>
           </div>
+
           <div className="password-div">
             <input
               className="open-sans booking-name-email password-no-margin" //confirm password
@@ -152,7 +154,6 @@ const Register = () => {
               onChange={handleConfirmPasswordChange}
               required
             />
-            
               <i
                 className={`fa-solid ${
                   isConfirmPasswordVisible  ? "fa-eye-slash" : "fa-eye"

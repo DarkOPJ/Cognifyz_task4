@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import MosChart from "../components/MosChart";
 import MosGauge from "../components/MosGauge";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Codec = () => {
   return (
@@ -11,6 +12,7 @@ const Codec = () => {
       <Helmet>
         <title>Codec</title>
       </Helmet>
+      <ScrollToTop />
       <div className="c-outer-1">
         <div className="c-side-menu">
           <div className="user-profile">

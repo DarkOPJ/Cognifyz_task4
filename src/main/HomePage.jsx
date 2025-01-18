@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import Footer from "../components/footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 const HomePage = () => {
   return (
@@ -10,7 +11,7 @@ const HomePage = () => {
       <Helmet>
         <title>Tonara AI</title>
       </Helmet>
-
+      <ScrollToTop />
       <nav className="navbar">
         <Link className="nav-logo" to="/">
           <img src="img/logo.png" alt="Tonara Logo" />
