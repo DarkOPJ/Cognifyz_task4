@@ -12,6 +12,9 @@ const RegisterModal = ({ isActive = false, close }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(false);
 
   const [passwordChecker, setPasswordChecker] = useState({
     minLength: false,
@@ -65,7 +68,6 @@ const RegisterModal = ({ isActive = false, close }) => {
         onSubmit={createNewUser}
         action=""
         className="booking-form modal-booking-form"
-        
       >
         <button type="button" onClick={close} className="close-btn">
           <i className="fa-regular fa-circle-xmark"></i>
@@ -97,30 +99,53 @@ const RegisterModal = ({ isActive = false, close }) => {
               autoComplete="email"
               required
             />
-            <input
-              className="open-sans booking-name-email"
-              placeholder="&#xf023; Password"
-              type="password"
-              name="registerModalpassword"
-              id="registerModalpassword"
-              value={password}
-              // onChange={(e) => setPassword(e.target.value)}
-              onChange={handlePasswordChange}
-              autoComplete="new-password"
-              required
-            />
-            <input
-              className="open-sans booking-name-email"
-              placeholder="&#xf023; Confirm Password"
-              type="password"
-              name="registerModalconfirmPassword"
-              id="registerModalconfirmPassword"
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-              // onChange={(e) => setConfirmPassword(e.target.value)}
-              autoComplete="new-password"
-              required
-            />
+
+            <div className="password-div " >
+              <input
+                className="open-sans booking-name-email password-no-margin" //password
+                placeholder="&#xf023; Password"
+                type={isPasswordVisible ? "text" : "password"} // Dynamic type
+                name="password"
+                id="password"
+                value={password}
+                // onChange={(e) => setPassword(e.target.value)}
+                autoComplete="new-password"
+                onChange={handlePasswordChange}
+                required
+              />
+
+              <i
+                className={`fa-solid ${
+                  isPasswordVisible ? "fa-eye-slash" : "fa-eye"
+                } password-view`}
+                onClick={() => setIsPasswordVisible(!isPasswordVisible)} // Toggle visibility
+                style={{ cursor: "pointer" }}
+              ></i>
+            </div>
+            <div className="password-div ">
+              <input
+                className="open-sans booking-name-email password-no-margin" //confirm password
+                placeholder="&#xf023; Confirm Password"
+                type={isConfirmPasswordVisible ? "text" : "password"} // Dynamic type
+                name="confirmPassword"
+                id="confirmPassword"
+                value={confirmPassword}
+                // onChange={(e) => setConfirmPassword(e.target.value)}
+                autoComplete="new-password"
+                onChange={handleConfirmPasswordChange}
+                required
+              />
+
+              <i
+                className={`fa-solid ${
+                  isConfirmPasswordVisible ? "fa-eye-slash" : "fa-eye"
+                } password-view`}
+                onClick={() =>
+                  setIsConfirmPasswordVisible(!isConfirmPasswordVisible)
+                } // Toggle visibility
+                style={{ cursor: "pointer" }}
+              ></i>
+            </div>
 
             {/* <div className="">
               <PasswordChecklist

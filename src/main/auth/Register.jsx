@@ -15,6 +15,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
   const [passwordChecker, setPasswordChecker] = useState({
     minLength: false,
@@ -89,12 +91,12 @@ const Register = () => {
       </div>
 
       <div className="right-inner">
-        <form onSubmit={createNewUser} className="signup-form" >
+        <form onSubmit={createNewUser} className="signup-form">
           <p className="signup-welcome open-sans">Hello!</p>
           <p className="signup-text open-sans">Sign Up to Get Started</p>
 
           <input
-            className="open-sans booking-name-email"
+            className="open-sans booking-name-email" //name
             placeholder="&#xf007; Full Name"
             type="text"
             name="name"
@@ -105,7 +107,7 @@ const Register = () => {
             required
           />
           <input
-            className="open-sans booking-name-email"
+            className="open-sans booking-name-email" //email
             placeholder="&#xf003; Email Address"
             type="email"
             name="email"
@@ -115,30 +117,50 @@ const Register = () => {
             autoComplete="email"
             required
           />
-          <input
-            className="open-sans booking-name-email"
-            placeholder="&#xf023; Password"
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            // onChange={(e) => setPassword(e.target.value)}
-            autoComplete="new-password"
-            onChange={handlePasswordChange}
-            required
-          />
-          <input
-            className="open-sans booking-name-email"
-            placeholder="&#xf023; Confirm Password"
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            value={confirmPassword}
-            // onChange={(e) => setConfirmPassword(e.target.value)}
-            autoComplete="new-password"
-            onChange={handleConfirmPasswordChange}
-            required
-          />
+          <div className="password-div">
+            <input
+              className="open-sans booking-name-email password-no-margin" //password
+              placeholder="&#xf023; Password"
+              type={isPasswordVisible ? "text" : "password"} // Dynamic type
+              name="password"
+              id="password"
+              value={password}
+              // onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password"
+              onChange={handlePasswordChange}
+              required
+            />
+            
+              <i
+                className={`fa-solid ${
+                  isPasswordVisible ? "fa-eye-slash" : "fa-eye"
+                } password-view`}
+                onClick={() => setIsPasswordVisible(!isPasswordVisible)} // Toggle visibility
+                style={{ cursor: "pointer" }}
+              ></i>
+          </div>
+          <div className="password-div">
+            <input
+              className="open-sans booking-name-email password-no-margin" //confirm password
+              placeholder="&#xf023; Confirm Password"
+              type={isConfirmPasswordVisible ? "text" : "password"} // Dynamic type
+              name="confirmPassword"
+              id="confirmPassword"
+              value={confirmPassword}
+              // onChange={(e) => setConfirmPassword(e.target.value)}
+              autoComplete="new-password"
+              onChange={handleConfirmPasswordChange}
+              required
+            />
+            
+              <i
+                className={`fa-solid ${
+                  isConfirmPasswordVisible  ? "fa-eye-slash" : "fa-eye"
+                } password-view`}
+                onClick={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} // Toggle visibility
+                style={{ cursor: "pointer" }}
+              ></i>
+          </div>
 
           {/* <div className="password-check">
             <PasswordChecklist
@@ -149,62 +171,60 @@ const Register = () => {
             />
           </div> */}
 
-<div className="password-checklist">
-              <ul>
-                <li className={passwordChecker.minLength ? "valid" : "invalid"}>
-                  <i
-                    className={
-                      passwordChecker.minLength
-                        ? "fa-solid fa-check"
-                        : "fa-solid fa-sharp fa-xmark"
-                    }
-                  ></i>{" "}
-                  At least 8 characters
-                </li>
-                <li
-                  className={passwordChecker.specialChar ? "valid" : "invalid"}
-                >
-                  <i
-                    className={
-                      passwordChecker.specialChar
-                        ? "fa-solid fa-check"
-                        : "fa-solid fa-sharp fa-xmark"
-                    }
-                  ></i>{" "}
-                  Contains a special character
-                </li>
-                <li className={passwordChecker.number ? "valid" : "invalid"}>
-                  <i
-                    className={
-                      passwordChecker.number
-                        ? "fa-solid fa-check"
-                        : "fa-solid fa-sharp fa-xmark"
-                    }
-                  ></i>{" "}
-                  Contains a number
-                </li>
-                <li className={passwordChecker.capital ? "valid" : "invalid"}>
-                  <i
-                    className={
-                      passwordChecker.capital
-                        ? "fa-solid fa-check"
-                        : "fa-solid fa-sharp fa-xmark"
-                    }
-                  ></i>{" "}
-                  Contains a capital letter
-                </li>
-                <li className={passwordChecker.match ? "valid" : "invalid"}>
-                  <i
-                    className={
-                      passwordChecker.match
-                        ? "fa-solid fa-check"
-                        : "fa-solid fa-sharp fa-xmark"
-                    }
-                  ></i>{" "}
-                  Passwords match
-                </li>
-              </ul>
-            </div>
+          <div className="password-checklist">
+            <ul>
+              <li className={passwordChecker.minLength ? "valid" : "invalid"}>
+                <i
+                  className={
+                    passwordChecker.minLength
+                      ? "fa-solid fa-check"
+                      : "fa-solid fa-sharp fa-xmark"
+                  }
+                ></i>{" "}
+                At least 8 characters
+              </li>
+              <li className={passwordChecker.specialChar ? "valid" : "invalid"}>
+                <i
+                  className={
+                    passwordChecker.specialChar
+                      ? "fa-solid fa-check"
+                      : "fa-solid fa-sharp fa-xmark"
+                  }
+                ></i>{" "}
+                Contains a special character
+              </li>
+              <li className={passwordChecker.number ? "valid" : "invalid"}>
+                <i
+                  className={
+                    passwordChecker.number
+                      ? "fa-solid fa-check"
+                      : "fa-solid fa-sharp fa-xmark"
+                  }
+                ></i>{" "}
+                Contains a number
+              </li>
+              <li className={passwordChecker.capital ? "valid" : "invalid"}>
+                <i
+                  className={
+                    passwordChecker.capital
+                      ? "fa-solid fa-check"
+                      : "fa-solid fa-sharp fa-xmark"
+                  }
+                ></i>{" "}
+                Contains a capital letter
+              </li>
+              <li className={passwordChecker.match ? "valid" : "invalid"}>
+                <i
+                  className={
+                    passwordChecker.match
+                      ? "fa-solid fa-check"
+                      : "fa-solid fa-sharp fa-xmark"
+                  }
+                ></i>{" "}
+                Passwords match
+              </li>
+            </ul>
+          </div>
 
           <input
             className="signup-form-btn open-sans"

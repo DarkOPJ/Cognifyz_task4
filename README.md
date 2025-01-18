@@ -13,4 +13,4 @@ Enhance form validation to include more complex rules (e.g., password strength).
 
 Dynamically update the DOM based on user interactions using JavaScript.
 
-Implement client-side routing for a smoother user experienc
+Implement client-side routing for a smoother user experience
