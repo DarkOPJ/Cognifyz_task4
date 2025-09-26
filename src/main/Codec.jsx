@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import MosChart from "../components/MosChart";
 import MosGauge from "../components/MosGauge";
 import ScrollToTop from "../components/ScrollToTop";
@@ -16,7 +16,11 @@ const Codec = () => {
       <div className="c-outer-1">
         <div className="c-side-menu">
           <div className="user-profile">
-            <img className="profile-img" src="img/frame.png" alt="Admin Image"/>
+            <img
+              className="profile-img"
+              src="img/frame.png"
+              alt="Admin Image"
+            />
             <p className="open-sans profile-name">Jeffrey Boadu</p>
           </div>
           <ul className="c-side-menu-options">
@@ -147,8 +151,7 @@ const Codec = () => {
               </button>
               <p className="open-sans c-nav-left-text">
                 <span className="left-text-1">Codec</span>{" "}
-                <span className="open-sans left-text-1">/</span>{" "}
-                  Dashboard
+                <span className="open-sans left-text-1">/</span> Dashboard
               </p>
             </div>
 
@@ -271,7 +274,7 @@ const Codec = () => {
 
           <div className="mos-wrapper">
             <div className="mos-gauge">
-              <MosGauge/>
+              <MosGauge />
             </div>
 
             <div className="mos-compare">
@@ -286,7 +289,7 @@ const Codec = () => {
                 </p>
               </div>
               {/* Mos Chart */}
-              <MosChart/>
+              <MosChart />
             </div>
           </div>
           <div className="other-predictions">
@@ -300,14 +303,12 @@ const Codec = () => {
               <div className="jit-djb domine" id="predDjb">
                 0
               </div>
-              <p className="section-info open-sans">
-              Predicted Jitter buffer
-              </p>
+              <p className="section-info open-sans">Predicted Jitter buffer</p>
             </div>
           </div>
         </div>
       </div>
-      <Footer isHome={false}/>
+      <Footer isHome={false} />
     </div>
   );
 };

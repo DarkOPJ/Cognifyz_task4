@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 
 const HomePage = () => {
